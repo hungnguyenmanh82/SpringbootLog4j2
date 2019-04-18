@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class Log4j2Controller {
-
+	
 	private static final Logger log = LogManager.getLogger(Log4j2Controller.class);
 	
 	@RequestMapping(path = { "/", "/index" }, method = RequestMethod.GET)
