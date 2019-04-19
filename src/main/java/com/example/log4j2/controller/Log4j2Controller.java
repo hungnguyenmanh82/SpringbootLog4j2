@@ -24,7 +24,13 @@ public class Log4j2Controller {
 	
 	@RequestMapping(path = { "/", "/index" }, method = RequestMethod.GET)
 	public String home(Model model){
+		//thứ tự ưu tiên từ cao xuống thấp
+		log.trace("/index"); //code này ko hiển thị vì log level ở file Log4j2.xml
 		log.debug("/index");
+		log.info("/index");
+		log.warn("/index");
+		log.error("/index");
+		log.fatal("/index");
 
 		return "index";
 	}
