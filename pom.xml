@@ -36,12 +36,12 @@
 		</dependency>
 
 		<!-- log4j-api là interface giống như common-logging -->
+
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 			<version>2.6.1</version>
 		</dependency>
-		<!-- phần implement để đọc file xml. Nếu đọc file Json thì phải add  Jackson vào. -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>

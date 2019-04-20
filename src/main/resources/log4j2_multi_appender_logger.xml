@@ -18,7 +18,7 @@
 	<Appenders>
 
 		<Console name="Console" target="SYSTEM_OUT" follow="true">
-			<PatternLayout pattern="${LOG_PATTERN_2}" />
+			<PatternLayout pattern="${LOG_PATTERN_1}" />
 		</Console>
 
 
@@ -33,7 +33,7 @@
 
 		<RollingFile name="fileAppender2" fileName="${basePath1}/testAppender2.log"
 			filePattern="${basePath1}/testAppender2-%d{yyyy-MM-dd}-%i.log">
-			<PatternLayout pattern="${LOG_PATTERN_7}" />
+			<PatternLayout pattern="${LOG_PATTERN_1}" />
 			<Policies>
 				<SizeBasedTriggeringPolicy size="19500KB" />
 			</Policies>
