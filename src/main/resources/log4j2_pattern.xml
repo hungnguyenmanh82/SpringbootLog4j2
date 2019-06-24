@@ -18,7 +18,8 @@
 	</Appenders>
 	<Loggers>
 		<!-- all > trace > debug > info > warn > error >fatal -->
-		<Root level="all" additivity="false" additivity="false" includeLocation="true">
+		<!-- additivity = true nghĩa là appenders thừa kế level filter từ its ancestors, nên để = false -->
+		<Root level="all"  includeLocation="true">
 			<AppenderRef ref="console" />
 		</Root>
 	</Loggers>

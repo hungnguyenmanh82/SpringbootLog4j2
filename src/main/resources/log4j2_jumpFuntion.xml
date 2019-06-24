@@ -13,11 +13,12 @@
 
 	<Appenders>
 		<Console name="console" target="SYSTEM_OUT">
-			<PatternLayout pattern="${LOG_PATTERN_1}" />
+			<PatternLayout pattern="${LOG_PATTERN_5}" />
 		</Console>
 	</Appenders>
 	<Loggers>
 		<!-- all > trace > debug > info > warn > error >fatal -->
+		<!-- additivity = true nghĩa là appenders thừa kế level filter từ its ancestors, nên để = false -->
 		<Root level="debug" additivity="false" includeLocation="true">
 			<AppenderRef ref="console" />
 		</Root>

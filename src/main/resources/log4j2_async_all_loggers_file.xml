@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- khai bao giong het Synchronous loggin, nhưng khi compile phai them option moi dc  -->
+<!-- add the follow Compiler Arguments to Maven compiler plugin (maven-compiler-plugin):
+-Dlog4j2.contextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+     to make all loggers asynchronous. -->
+
+<Configuration status="INFO">
+
+	<Properties>
+		<Property name="LOG_PATTERN_1">%d [%p] %c{1} – %m%n</Property>
+		<Property name="LOG_PATTERN_2">%d [%-6p] %c{2} – %m%n</Property>
+		<Property name="LOG_PATTERN_3">%d [%p] %c – %m%n</Property>
+		<Property name="LOG_PATTERN_4">%d{yyyy/MM/dd HH:mm:ss,SSS} [%-6p] %c{1} –
+			%m%n</Property>
+		<Property name="LOG_PATTERN_5">%d [%-6p] %c{1}.%M(%F:%L) – %m%n</Property>
+		<Property name="LOG_PATTERN_6">%d [%-6p] %c{2}.%M(%F:%L) – %m%n</Property>
+		<Property name="LOG_PATTERN_7">%d [%-6p] %c.%M(%F:%L) – %m%n</Property>
+
+		<Property name="basePath">C:\\logs</Property>
+		<Property name="basePath1">.</Property>
+	</Properties>
+
+	<Appenders>
+		<!-- Async Loggers will auto-flush in batches, so switch off immediateFlush. -->
+		<!-- RandomAccessFile: cung la ghi ra file nhung co buffer -->
+		<RandomAccessFile name="RandomAccessFile" fileName="${basePath1}/async.log"
+			immediateFlush="false" append="false" includeLocation="true">
+			<PatternLayout pattern="${LOG_PATTERN_5}" />
+		</RandomAccessFile>
+	</Appenders>
+	<Loggers>
+		<!-- includeLocation="true": thì sẽ show (%F:%L), nhung se lam giam performance  -->
+		<Root level="info" includeLocation="true">
+			<AppenderRef ref="RandomAccessFile" />
+		</Root>
+	</Loggers>
+</Configuration>

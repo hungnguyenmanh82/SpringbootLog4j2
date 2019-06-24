@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO">
+<!-- No need to set system property "log4j2.contextSelector" to any value 
+	when using <asyncLogger> or <asyncRoot>. -->
+<Configuration status="WARN" monitorInterval="30">
 
 	<Properties>
+
 		<Property name="LOG_PATTERN_1">%d [%p] %c{1} – %m%n</Property>
 		<Property name="LOG_PATTERN_2">%d [%-6p] %c{2} – %m%n</Property>
 		<Property name="LOG_PATTERN_3">%d [%p] %c – %m%n</Property>
-		<Property name="LOG_PATTERN_4">%d{yyyy/MM/dd HH:mm:ss,SSS} [%-6p] %c{1} – %m%n</Property>
+		<Property name="LOG_PATTERN_4">%d{yyyy/MM/dd HH:mm:ss,SSS} [%-6p] %c{1} –
+			%m%n</Property>
 		<Property name="LOG_PATTERN_5">%d [%-6p] %c{1}.%M(%F:%L) – %m%n</Property>
 		<Property name="LOG_PATTERN_6">%d [%-6p] %c{2}.%M(%F:%L) – %m%n</Property>
 		<Property name="LOG_PATTERN_7">%d [%-6p] %c.%M(%F:%L) – %m%n</Property>
 
-		<Property name="LOG_PATTERN_1">%d %-5p [%t] %C{1}.%M(%F:%L) - %m%n</Property>
-		<Property name="LOG_PATTERN_2">%d %-5p [%t] %C{3}.%M(%F:%L) - %m%n</Property>
+		<Property name="basePath">C:\\logs</Property>
+		<Property name="basePath1">.</Property>
 	</Properties>
 
 	<Appenders>
 		<Console name="console" target="SYSTEM_OUT">
-			<PatternLayout pattern="${LOG_PATTERN_1}" />
+			<PatternLayout pattern="${LOG_PATTERN_5}" />
 		</Console>
 	</Appenders>
+	
 	<Loggers>
 		<!-- all > trace > debug > info > warn > error >fatal -->
-		<!-- additivity = true nghĩa là appenders thừa kế level filter từ its ancestors, nên để = false -->
-		<Root level="info" additivity="false" includeLocation="true">
+		<Root level="info" includeLocation="true">
 			<AppenderRef ref="console" />
 		</Root>
 	</Loggers>
+
 </Configuration>

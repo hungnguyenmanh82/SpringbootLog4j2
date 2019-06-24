@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN" monitorInterval="30">
+<Configuration status="INFO">
 
 	<Properties>
-
 		<Property name="LOG_PATTERN_1">%d [%p] %c{1} – %m%n</Property>
 		<Property name="LOG_PATTERN_2">%d [%-6p] %c{2} – %m%n</Property>
 		<Property name="LOG_PATTERN_3">%d [%p] %c – %m%n</Property>
@@ -10,53 +9,17 @@
 		<Property name="LOG_PATTERN_5">%d [%-6p] %c{1}.%M(%F:%L) – %m%n</Property>
 		<Property name="LOG_PATTERN_6">%d [%-6p] %c{2}.%M(%F:%L) – %m%n</Property>
 		<Property name="LOG_PATTERN_7">%d [%-6p] %c.%M(%F:%L) – %m%n</Property>
-		
-		<Property name="basePath">C:\\logs</Property>
-		<Property name="basePath1">.</Property>
 	</Properties>
 
 	<Appenders>
-
-		<Console name="Console" target="SYSTEM_OUT" follow="true">
+		<Console name="console" target="SYSTEM_OUT">
 			<PatternLayout pattern="${LOG_PATTERN_1}" />
 		</Console>
-
-
-		<RollingFile name="fileAppender1" fileName="${basePath1}/testAppender1.log"
-			filePattern="${basePath1}/testAppender1-%d{yyyy-MM-dd}-%i.log">
-			<PatternLayout pattern="${LOG_PATTERN_1}" />
-			<Policies>
-				<SizeBasedTriggeringPolicy size="19500KB" />
-			</Policies>
-			<DefaultRolloverStrategy max="1" />
-		</RollingFile>
-
-		<RollingFile name="fileAppender2" fileName="${basePath1}/testAppender2.log"
-			filePattern="${basePath1}/testAppender2-%d{yyyy-MM-dd}-%i.log">
-			<PatternLayout pattern="${LOG_PATTERN_1}" />
-			<Policies>
-				<SizeBasedTriggeringPolicy size="19500KB" />
-			</Policies>
-			<DefaultRolloverStrategy max="10" />
-		</RollingFile>
-
 	</Appenders>
-
 	<Loggers>
-
-		<Logger name="logger1" additivity="false" includeLocation="true">
-			<AppenderRef ref="fileAppender1" />
-			<AppenderRef ref="Console" />
-		</Logger>
-		
-		<Logger name="logger2" additivity="false" includeLocation="true">
-			<AppenderRef ref="fileAppender2" />
-		</Logger>
-
-		<Root level="all" additivity="false" includeLocation="true" >
-			<AppenderRef ref="Console" />
+		<!-- all > trace > debug > info > warn > error >fatal -->
+		<Root level="info" additivity="false" includeLocation="true">
+			<AppenderRef ref="console" />
 		</Root>
-
 	</Loggers>
-
 </Configuration>
