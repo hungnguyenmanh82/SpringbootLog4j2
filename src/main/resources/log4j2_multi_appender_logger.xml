@@ -44,16 +44,16 @@
 
 	<Loggers>
 
-		<Logger name="logger1" additivity="false">
+		<Logger name="logger1" additivity="false" includeLocation="true">
 			<AppenderRef ref="fileAppender1" />
 			<AppenderRef ref="Console" />
 		</Logger>
 		
-		<Logger name="logger2" additivity="false">
+		<Logger name="logger2" additivity="false" includeLocation="true">
 			<AppenderRef ref="fileAppender2" />
 		</Logger>
 
-		<Root level="all">
+		<Root level="all" additivity="false" includeLocation="true" >
 			<AppenderRef ref="Console" />
 		</Root>
 

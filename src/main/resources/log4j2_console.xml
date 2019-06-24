@@ -18,7 +18,7 @@
 	</Appenders>
 	<Loggers>
 		<!-- all > trace > debug > info > warn > error >fatal -->
-		<Root level="info" additivity="false">
+		<Root level="info" additivity="false" includeLocation="true">
 			<AppenderRef ref="console" />
 		</Root>
 	</Loggers>
